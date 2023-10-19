@@ -6,28 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
-    <title>Tasty Vibes</title>
+    <title>Sizzle and Savor</title>
 </head>
       <body>
         <header>
-            <img class="hero" src="images/heroimage.jpg" alt="Hero image"></img>
-            <h1 class="overlay">Tasty</h1>
-            <h1 class="overlay">Vibes</h1>
+            <img class="hero" src="images/heroimage3.jpg" alt="Hero image"></img>
+            <div class="overlay">
+                <h1>Sizzle</h1>
+                <h1 class="and">and</h1>
+                <h1>Savor</h1>
+            </div>
         </header>
-        <div class="search-bar">
-            <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
-            <input type="search" placeholder="Search for recipes">
+        <div class="search">
+            <input type="text" placeholder="Search for recipes..">
         </div>
         <div class="layout">
             <div class="recipefilters">
-                <h2>Filter</h2>
-                <button>Beef</button>
-                <button>Chicken</button>
-                <button>Pork</button>
-                <button>Fish</button>
-                <button>Steak</button>
-                <button>Turkey</button>
-                <button>Vegetarian</button>
+                <h2>Filters</h2>
+                <div class="filter">
+                    <input type="checkbox" name="all" value="all"> <label for="all">All</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="beef" value="beef"> <label for="beef">Beef</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="chicken" value="chicken"> <label for="chicken">Chicken</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="pork" value="pork"> <label for="pork">Pork</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="fish" value="fish"> <label for="fish">Fish</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="steak" value="steak"> <label for="steak">Steak</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="turkey" value="turkey"> <label for="turkey">Turkey</label>
+                 </div>
+                 <div class="filter">
+                    <input type="checkbox" name="vegetarian" value="vegetarian"> <label for="vegetarian">Vegetarian</label>
+                 </div>
             </div>
             <div class="recipes">
                 <div class="single">
@@ -86,7 +105,7 @@
             </div>
         </div>
         <footer>
-            <p>&copy; 2023 Tasty Vibes</p>
+            <p class="footer">&copy; 2023 Tasty Vibes</p>
         </footer>
 
       </body>

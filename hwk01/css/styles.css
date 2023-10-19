@@ -1,0 +1,85 @@
+body {
+    background-color: beige;
+}
+.header {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hero{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.overlay {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    margin-right: 82%;
+    color: beige;
+}
+
+.single {
+    color: darkgreen;
+}
+
+h4 {
+    color: darkolivegreen;
+}
+
+.recipefilters {
+    color: black;
+    margin-left: calc(13%/2);
+    margin-top: 70px;
+}
+
+.filter {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    margin: 25px 0;
+    display: block;
+}
+
+.filter input {
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        height: 14px;
+        width: 14px;
+}
+
+.and {
+    font-size: 40px;
+}
+.search input {
+    float: right;
+    padding: 6px;
+    padding-right: 90px;
+    border: none;
+    margin-top: 10px;
+    margin-right: 40px;
+    font-size: 17px;
+}
+
+
+
+footer {
+    background-color: darkolivegreen;
+    margin-bottom: 0;
+    height: 70px;
+    width: auto;
+    text-align: center;
+}
+
+.footer {
+    color: beige;
+    font-size: 20px;
+    padding-top: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
