@@ -106,6 +106,10 @@ header {
     cursor: pointer;
 }
 
+.searchbutton:hover {
+    background-color: darkolivegreen;
+}
+
 .recipes {
     margin: 50px 0;
     width: 75%;
@@ -122,6 +126,22 @@ header {
     position: relative;
     cursor: pointer;
 
+}
+
+.single:hover {
+    transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    -ms-transform:scale(1.1);
+    -o-transform:scale(1.1);
+}
+
+.single:hover {
+    transition:all .6s ease-in-out;
+    -webkit-transition:all .6s ease-in-out;
+    -moz-transition:all .6s ease-in-out;
+    -ms-transition:all .6s ease-in-out;
+    -o-transition:all .6s ease-in-out;
 }
 
 .recipetitles {
