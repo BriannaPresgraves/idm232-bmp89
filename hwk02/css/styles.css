@@ -1,15 +1,17 @@
 body {
     background-color: beige;
 }
-.header {
-    width: 80%;
+
+header {
     margin: 0 auto;
+    margin-bottom: 0px;
 }
 
 .hero{
     width: 100%;
     height: auto;
     position: relative;
+    margin-bottom: 0%;
 }
 
 .overlay {
@@ -30,6 +32,14 @@ body {
     background-color: darkolivegreen;
     margin-top: 0%;
     color: beige;
+    text-align: center;
+    font-size: 20px;
+}
+
+.subtitle h2 {
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .layout {
@@ -91,8 +101,9 @@ body {
     margin-right: 40px;
     border-radius: 10px;
     font-size: 17px;
-    background-color: darkolivegreen;
+    background-color: darkgreen;
     color:beige;
+    cursor: pointer;
 }
 
 .recipes {
@@ -109,6 +120,7 @@ body {
     width: 30%;
     border-radius: 20px;
     position: relative;
+    cursor: pointer;
 
 }
 
@@ -204,8 +216,16 @@ footer {
         font-size: 15px;
     }
 
+    .searchbutton {
+        font-size: 15px;
+    }
+
     .and {
         font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 18px;
     }
 
   }
@@ -256,8 +276,16 @@ footer {
         font-size: 23px;
     }
 
+    .subtitle {
+        font-size: 16px;
+    }
+
     .search input {
         padding-right: 50px;
+    }
+
+    .searchbutton {
+        padding-right: 8px;
     }
 
     .layout {
@@ -321,6 +349,10 @@ footer {
         font-size: 20px;
     }
 
+    .subtitle {
+        font-size: 14px;
+    }
+
     .search {
         font-size: 14px;
         padding-right: 35px;
@@ -343,6 +375,16 @@ footer {
         margin-top: 10px;
         margin-right: 0px;
         margin-bottom: 0px;
+    }
+    
+    .searchbutton {
+        float: right;
+        padding-left: 10px;
+        padding-right: 8px;
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-left: 15px;
+        font-size: 14px;
     }
   }
 
@@ -388,6 +430,10 @@ footer {
         font-size: 18px;
     }
 
+    .subtitle {
+        font-size: 12px;
+    }
+
   }
 
   @media only screen and (max-width: 490px) { 
@@ -422,6 +468,10 @@ footer {
 
     .and {
         font-size: 16px;
+    }
+
+    .subtitle {
+        font-size: 10px;
     }
 
     .recipetitles h3 {
