@@ -78,6 +78,22 @@ header {
         width: 14px;
 }
 
+.filter input[type="checkbox"]:not(:checked) {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white; 
+    border: .25px solid black; 
+    border-radius: 20%;
+  }
+  
+  .filter input[type="checkbox"]:checked {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: darkgreen; 
+    border: .25px solid black;
+    border-radius: 20%;
+  }
+
 .and {
     font-size: 40px;
 }
