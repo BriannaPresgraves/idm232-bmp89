@@ -208,7 +208,7 @@ a.hover-link:hover {
     color: darkgreen;
 }
 
-.subCap {
+.with {
     font-size: 1rem;
     letter-spacing: .05rem;
     line-height: 1.6;
@@ -226,7 +226,7 @@ figcaption.ingList {
     padding: 0rem .5rem .5rem .5rem;
 }
 
-.time, .serving, .calories {
+.info {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
     letter-spacing: .05rem;
@@ -248,7 +248,7 @@ p {
     justify-content: center;
 }
 
-p.desc, figcaption.stepDesc {
+p.description, figcaption.stepDesc {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
     max-width: 80ch;
@@ -283,14 +283,14 @@ figcaption {
     border-bottom: .5px solid var(--color-accent);
     }
 
-.oneRec, .ing{
+.heading, .ing{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
 }
     
-.oneRec img {
+.heading img {
     width: auto;
     height: 500px;
     border-radius: 5%;
@@ -311,7 +311,7 @@ figcaption {
     justify-content: center;
 }
     
-.text {
+.headinginfo {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -393,7 +393,7 @@ footer {
 
 @media screen and (max-width: 1000px) {
 
-    .oneRec img {
+    .heading img {
         min-width: 50%;
         height: auto;
     }
@@ -407,7 +407,7 @@ footer {
         max-width: 75%;
     }
 
-    .text {
+    .headinginfo {
         min-width: auto;
     }
 
@@ -419,7 +419,7 @@ footer {
         font-size: 1rem;
     }
         
-    .subCap, figcaption.ingList, .time, figcaption.stepNum, .serving, .calories, p, p.desc, figcaption.stepDesc {
+    .with, figcaption.ingList, .info, figcaption.stepNum, p, p.description, figcaption.stepDesc {
         font-size: .75rem;
     }
     
@@ -570,7 +570,7 @@ footer {
 
   @media screen and (max-width: 685px) {
 
-    .oneRec, .ing {
+    .heading, .ing {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -578,7 +578,7 @@ footer {
         margin: .25rem;
     }
 
-    .oneRec img {
+    .heading img {
         max-width: 100%;
         height: auto;
     }
@@ -588,7 +588,7 @@ footer {
         height: auto;
     }
 
-    .oneRec img {
+    .heading img {
         min-width: 50%;
         height: auto;
     }
@@ -603,7 +603,7 @@ footer {
         border-radius: 20%;
     }
 
-    .text {
+    .headinginfo {
         min-width: auto;
         margin: .25rem;
         padding: .25rem;
@@ -619,7 +619,7 @@ footer {
         font-size: 1rem;
     }
         
-    .subCap, figcaption.ingList, .time, figcaption.stepNum, .serving, .calories, p, p.desc, figcaption.stepDesc {
+    .with, figcaption.ingList, .info, figcaption.stepNum, p, p.description, figcaption.stepDesc {
         font-size: .75rem;
         margin: 0rem 0.25rem 0.25rem 0.25rem;
         padding: 0rem 0.5rem 0.5rem 0.5rem;
