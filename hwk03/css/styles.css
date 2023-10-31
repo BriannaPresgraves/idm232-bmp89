@@ -275,7 +275,7 @@ figcaption {
     justify-content: center;
     }
 
-.containerOne, .containerTwo {
+.recipeheading, .ingredients {
     position: relative;
     max-width: 1920px;
     margin: 0 auto;
@@ -322,7 +322,7 @@ figcaption {
     margin: 1rem;
     }    
 
-.containerThree {
+.recipesteps {
     margin-bottom: 3rem;
 }
 
@@ -625,7 +625,7 @@ footer {
         padding: 0rem 0.5rem 0.5rem 0.5rem;
     }
 
-    .containerOne .containerTwo .containerThree {
+    .recipeheading .ingredients .recipesteps {
             margin: .25rem;
             padding: .25rem;
     }
