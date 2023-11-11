@@ -52,7 +52,7 @@
                     <input type="checkbox" name="vegetarian" value="vegetarian"> <label for="vegetarian">Vegetarian</label>
                  </div>
             </div>
-            <div class="recipes">
+            <div class="recipes37">
             <?php
             require_once './includes/fun.php';
             consoleMsg("PHP to JS is not it");
