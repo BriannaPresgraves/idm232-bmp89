@@ -65,21 +65,21 @@
             $query = "SELECT * FROM recipes";
             $results = mysqli_query($db_connection, $query);
             // consoleMsg("results is ; $results");
-            if ($results->num_rows > 0) {
+            if ($results && mysqli_num_rows($results) > 0) {
             consoleMsg("Query successful! number of rows: $results->num_rows");
-            while ($oneRecipe = mysqli_fetch_array($results)) {
-            // echo '<h3>' .$oneRecipe['Title']. ' - '  . $oneRecipe['Cal/Serving']  .  '</h3>'; 
-            $id = $oneRecipe['id'];
+            while ($recipe = mysqli_fetch_array($results)) {
+
             echo '<div class="single">';
-            echo '<img src="./images/' . $oneRecipe['Main IMG'] . '" alt="Dish Image">';
+            echo '<img src="./images/' . ($recipe['Main IMG']) . '" alt="Dish Image">';
             echo '<div class="recipetitles">';
-            echo '<h3>'  . $oneRecipe['Title'] . '</h3>';
-            echo '<h4>'  . $oneRecipe['Subtitle'] . '</h4>';
+            echo '<h3>'  . ($recipe['Title']) . '</h3>';
+            echo '<h4>'  . ($recipe['Subtitle']) . '</h4>';
             echo '</div>';
             echo '</div>';
         }
 
       } else {
+        echo '<p>No recipes found</p>';
         consoleMsg("QUERY ERROR");
       }
 
