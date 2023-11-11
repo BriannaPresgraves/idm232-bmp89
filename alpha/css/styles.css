@@ -126,7 +126,7 @@ header {
     background-color: darkolivegreen;
 }
 
-.recipes {
+.recipes37 {
     margin: 50px 0;
     width: 75%;
     display: flex;
@@ -509,7 +509,7 @@ footer {
   }
 
   @media only screen and (max-width: 850px) {
-    .recipes {
+    .recipes37 {
         margin: 50px 0;
         width: 80%;
         display: flex;
@@ -525,7 +525,7 @@ footer {
   }
 
   @media only screen and (max-width: 828px) {
-    .recipes {
+    .recipes37 {
         margin: 50px 0;
         width: 80%;
         display: flex;
@@ -592,7 +592,7 @@ footer {
         height: fit-content;
     }
 
-    .recipes {
+    .recipes37 {
         margin: 50px 0;
         width: 70%;
         display: flex;
@@ -695,7 +695,7 @@ footer {
 }
 
   @media only screen and (max-width: 665px) { 
-    .recipes {
+    .recipes37 {
         margin: 50px 0;
         width: 75%;
         display: flex;

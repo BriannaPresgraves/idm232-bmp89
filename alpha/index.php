@@ -53,77 +53,37 @@
                  </div>
             </div>
             <div class="recipes">
-                <div class="single">
-                    <img src="images/roastedturkey.jpg" alt="Roasted Turkey Breast & Farro-Endive Salad with Brown Butter Apple Compote"></img>
-                    <div class="recipetitles">
-                        <h3>Roasted Turkey Breast & Farro-Endive Salad</h3>
-                        <h4>with Brown Butter Apple Compote</h4>
-                    </div>
-                </div>
+            <?php
+            require_once './includes/fun.php';
+            consoleMsg("PHP to JS is not it");
+            require_once './env.php';
+            require_once './includes/database.php';
+            ?>
+            <?php
+            // Get all the recipes from "recipes" table in the "idm232" database
+            consoleMsg("results is ; $results");
+            $query = "SELECT * FROM recipes";
+            $results = mysqli_query($db_connection, $query);
+            // consoleMsg("results is ; $results");
+            if ($results->num_rows > 0) {
+            consoleMsg("Query successful! number of rows: $results->num_rows");
+            while ($oneRecipe = mysqli_fetch_array($results)) {
+            // echo '<h3>' .$oneRecipe['Title']. ' - '  . $oneRecipe['Cal/Serving']  .  '</h3>'; 
+            $id = $oneRecipe['id'];
+            echo '<div class="single">';
+            echo '<img src="./images/' . $oneRecipe['Main IMG'] . '" alt="Dish Image">';
+            echo '<div class="recipetitles">';
+            echo '<h3>'  . $oneRecipe['Title'] . '</h3>';
+            echo '<h4>'  . $oneRecipe['Subtitle'] . '</h4>';
+            echo '</div>';
+            echo '</div>';
+        }
 
-                <div class="single">
-                    <img src="images/crispyfish.jpg" alt="Crispy Fish Sandwiches with Tartar Sauce & Roasted Sweet Potato Wedges"></img>
-                    <div class="recipetitles">
-                        <h3>Crispy Fish Sandwiches</h3>
-                        <h4>with Tartar Sauce & Roasted Sweet Potato Wedges</h4>
-                    </div>
-                </div>
+      } else {
+        consoleMsg("QUERY ERROR");
+      }
 
-                <div class="single">
-                    <img src="images/anchochicken.jpg" alt="Ancho-Orange Chicken with Kale Rice & Roasted Carrots"></img>
-                    <div class="recipetitles">
-                        <h3>Ancho-Orange Chicken</h3>
-                        <h4>with Kale Rice & Roasted Carrots</h4>
-                    </div>
-                </div>
-
-                <div class="single">
-                    <img src="images/beefmedallions.jpg" alt="Beef Medallions & Mushroom Sauce with Mashed Potatoes"></img>
-                    <div class="recipetitles">
-                        <h3>Beef Medallions & Mushroom Sauce</h3>
-                        <h4>with Mashed Potatoes</h4>
-                    </div>
-                </div>
-
-                <div a href= "index.html" class="single">
-                    <img src="images/broccolibasil.jpg" alt="Broccoli & Basil Pesto Sandwiches with Romaine & Citrus Salad"></img>
-                    <div class="recipetitles">
-                        <h3>Broccoli & Basil Pesto Sandwiches</h3>
-                        <h4>with Romaine & Citrus Salad</h4>
-                    </div>
-                </div>
-
-                <div class="single">
-                    <img src="images/hoisinglazed.jpg" alt="Hoisin-Glazed Pork Chops with Stir-Fried Vegetables & Wonton Noodles"></img>
-                    <div class="recipetitles">
-                        <h3>Hoisin-Glazed Pork Chops</h3>
-                        <h4>with Stir-Fried Vegetables & Wonton Noodles</h4>
-                    </div>
-                </div>
-
-                <div class="single">
-                    <img src="images/searedsteaks.jpg" alt="Seared Steaks & Garlic Butter with Oven Fries"></img>
-                    <div class="recipetitles">
-                        <h3>Seared Steaks & Garlic Butter</h3>
-                        <h4>with Oven Fries</h4>
-                    </div>
-                </div>
-
-                <div class="single">
-                    <img src="images/searedchicken.jpg" alt="Seared Chicken & Mashed Potatoes with Maple-Glazed Carrots"></img>
-                    <div class="recipetitles">
-                        <h3>Seared Chicken & Mashed Potatoes</h3>
-                        <h4>with Maple-Glazed Carrots</h4>
-                    </div>
-                </div>
-
-                <div class="single">
-                    <img src="images/roastedred.jpg" alt="Roasted Red Pepper Pasta with Lemon-Parmesan Broccoli"></img>
-                    <div class="recipetitles">
-                        <h3>Roasted Red Pepper Pasta</h3>
-                        <h4>with Lemon-Parmesan Broccoli</h4>
-                    </div>
-                </div>
+    ?>
             </div>
         </div>
         <footer>
