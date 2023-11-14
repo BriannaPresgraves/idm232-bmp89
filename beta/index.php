@@ -18,7 +18,7 @@
             </div>
         </header>
         <div class="back">
-            <a href="home.html" class="back_button"><  Back to Recipes</a>
+            <a href="home.php" class="back_button"><  Back to Recipes</a>
         </div>
         <main>
             <?php
