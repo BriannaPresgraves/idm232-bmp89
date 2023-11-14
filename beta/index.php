@@ -21,37 +21,57 @@
             <a href="home.html" class="back_button"><  Back to Recipes</a>
         </div>
         <main>
+            <?php
+            require_once './includes/fun.php';
+            consoleMsg("fun.php is loaded");
+
+            // Include env.php that holds global vars with secret info
+            require_once './env.php';
+
+            // Include the database connection code
+            require_once './includes/database.php';
+            ?>
             <div class="recipeheading">
+                <?php
+                $query = "SELECT * FROM `recipes` WHERE `id` = 1";
+                $results = mysqli_query($db_connection, $query);
+                $recipe = array();
+
+                if ($results->num_rows > 0) {
+                    $recipe = mysqli_fetch_assoc($results);
+                } else {
+                    echo '<p>No recipes found.</p>';
+                }
+                ?>
     
                 <div class="main_info">
                     <figure class="heading">
     
-                            <img src="images/anchochicken.jpg" alt="Ancho-Orange Chicken">
+                            <img src="images/<?php echo ($recipe['Main IMG']); ?>" alt="Ancho-Orange Chicken">
                         
                     <div class="headinginfo">
                         <div class="title">
-                            <figcaption>Ancho-Orange Chicken</figcaption>
+                            <figcaption><?php echo ($recipe['Title']); ?></figcaption>
                         </div>
     
                         <div>
-                            <figcaption class="with">with Kale Rice & Roasted Carrots</figcaption>
+                            <figcaption class="with"><?php echo ($recipe['Subtitle']); ?></figcaption>
                         </div>
     
                         <div>
-                            <figcaption class="info"> 45 min</figcaption>
+                            <figcaption class="info"><?php echo ($recipe['Cook Time']); ?></figcaption>
                         </div>
     
                         <div>
-                            <figcaption class="info"> 4 servings</figcaption>
+                            <figcaption class="info"><?php echo ($recipe['Servings']); ?> servings</figcaption>
                         </div>
 
                         <div>
-                            <figcaption class="info"> 600 calories per serving </figcaption>
+                            <figcaption class="info"><?php echo ($recipe['Cal/Serving']); ?> cal/serving </figcaption>
                         </div>
     
                         <div>
-                            <p class="description">Weʼre amping up chicken breasts with a glaze of smoky ancho chile paste and fresh orange juice in this recipe. 
-                                On the side, roasted carrots and lightly creamy, golden raisin-studded rice perfectly accent the sweetness of the glaze.</p>
+                            <p class="description"><?php echo ($recipe['Description']); ?></p>
                         </div>
     
                     </div>
@@ -60,29 +80,29 @@
                 </div>
         
             </div>
+
+            <?php
+            $ingredients = explode('*', $recipe['All Ingredients']);
+
+            function wrapNumbersWithSpan($string) {
+                return preg_replace('/(\d+\/\d+|\d+)/', '<span class="number">$1</span>', $string);
+            }
+            ?>
     
             <div class="ingredients">
                 <div>
                     <figure class="ing">
     
-                            <img src="images/anchochickeningredients.jpg" alt="Ancho-Orange Chicken">
+                            <img src="images/<?php echo ($recipe['Ingredients IMG']);?>" alt="Ancho-Orange Chicken">
                         
                     <div class="text">
                         <div class="ingList">
                             <figcaption class="stepName">Ingredients</figcaption>
                             <figcaption class="ingList">
-                                <ul>
-                                <li>4 Boneless, Skinless Chicken Breasts</li>
-                                <li>1 Lime</li>
-                                <li>1 Tbsp Ancho Chile Paste</li>
-                                <li>1 bunch Kale</li>
-                                <li>2 Tbsps Butter</li>
-                                <li>¾ cup Jasmine Rice</li>
-                                <li>2 cloves Garlic</li>
-                                <li>2 Tbsps Crème Fraîche</li>
-                                <li>4 Carrots</li>
-                                <li>3 Tbsps Golden Raisins</li>
-                                <li>1 Orange</li>
+                            <ul>
+                                <?php foreach ($ingredients as $ingredient): ?>
+                                <li><?php echo (wrapNumbersWithSpan(trim($ingredient))); ?></li>
+                                <?php endforeach; ?>
                                 </ul>
                             </figcaption>
                         </div>
