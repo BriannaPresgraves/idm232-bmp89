@@ -93,44 +93,34 @@
                 echo '</div>';
                     echo '</figure>';
             echo '</div>';
-
-            // Instructions
-            echo '<div class="recipesteps">';
-            echo '<div class="steps">';
-            echo '<figure class="step">';
-
-        $imageUrls = explode('*', $oneRecipe['Step IMGs']);
-
-        for ($i = 1; $i <= 6; $i++) {
-            $stepTitleKey = 'Step Title #' . $i;
-            $stepDescKey = 'Step Desc #' . $i;
         
-            if (!empty($oneRecipe[$stepTitleKey]) && !empty($oneRecipe[$stepDescKey])) {
-                $stepName = preg_replace('/^\d+\s*/', '', $oneRecipe[$stepTitleKey]);
-                
-                // Echo the step number if title and description exist
-                echo '<figcaption class="stepName">Step ' . $i . '</figcaption>';
-                
-                // Echo the modified step title (without the number) and description
-                echo '<figcaption class="stepName">' . $stepName . '</figcaption>';
-                echo '<figcaption class="stepDesc">' . $oneRecipe[$stepDescKey] . '</figcaption>';
-            
-                // Step IMG
-                if (isset($imageUrls[$i - 1])) {
-                    echo '<img src="images/' . $imageUrls[$i - 1] . '"/>';
-                }
-            }
-        }
+            echo '<div class="recipesteps">';
+            echo '<div class="steps">';                  
+                        $originalSteps2 = explode('*', $oneRecipe['All Steps']);
+                        $stepImgsArray = explode("*", $oneRecipe['Step IMGs']);
+                    // echo '<p> Number of steps is' . count($originalSteps2) .' </p>';
+                        for($lp = 0; $lp < count($originalSteps2 ); $lp++) {
+                            $firstChar = substr($originalSteps2[$lp], 0, 1);
+                        
+                            // echo '<p> this is the first character' . $firstChar . '</p>';
+                            if (is_numeric($firstChar)){
+                                echo '<figure class="step">'; 
+                                echo '<img src="./images/' . $stepImgsArray[$firstChar-1] . '" alt="Dish image">';
+                                echo '<figcaption class="stepName"> Step ' . $originalSteps2[$lp] . '</figcaption>';
+                                echo '<figcaption class="stepDesc">' . $originalSteps2[$lp+1] . '</figcaption>';  
+                                echo '</figure>';
+                            }
+                        
+                        }
 
-            echo '</figure>';
-            echo '</div>';
-            echo '</div>';
-        }
+                        echo '</div>';
+                        echo '</div>';
+                    }
 
-      } else {
-        consoleMsg("QUERY ERROR");
-      }
-    ?>
+                    };
+                ?>
+
+       
         </main>
 
         <footer>
