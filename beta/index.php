@@ -20,7 +20,6 @@
         <div class="back">
             <a href="home.php" class="back_button"><  Back to Recipes</a>
         </div>
-        <main>
             <?php
             require_once './includes/fun.php';
             consoleMsg("fun.php is loaded");
@@ -31,8 +30,8 @@
             // Include the database connection code
             require_once './includes/database.php';
             ?>
-
-<?php
+    <main>
+      <?php
       $query = "SELECT * FROM recipes WHERE id=1";
       $results = mysqli_query($db_connection, $query);
       if ($results->num_rows > 0) {
@@ -48,21 +47,17 @@
                     echo '<div class="title">';
                     echo '<figcaption>' .$oneRecipe['Title']. '</figcaption>';
                     echo '</div>';
-                    echo '<div>';
+                    
                     echo '<figcaption class="with">' .$oneRecipe['Subtitle']. '</figcaption>';
-                    echo '</div>';
-                    echo '<div>';
+                    
                     echo '<figcaption class="info">' .$oneRecipe['Cook Time']. '</figcaption>';
-                    echo '</div>';
-                    echo '<div>';
+                    
                     echo '<figcaption class="info">' .$oneRecipe['Servings']. ' servings</figcaption>';
-                    echo '</div>';
-                    echo '<div>';
+                  
                     echo '<figcaption class="info">' .$oneRecipe['Cal/Serving']. ' cal/serving</figcaption>';
-                    echo '</div>';
-                    echo '<div>';
+                    
                     echo '<p class="description">' .$oneRecipe['Description']. '</p>';
-                    echo '</div>';
+                    
                 echo '</div>';
             echo '</figure>';
             echo '</div>';
@@ -95,29 +90,30 @@
             echo '</div>';
         
             echo '<div class="recipesteps">';
-            echo '<div class="steps">';                  
-                        $originalSteps2 = explode('*', $oneRecipe['All Steps']);
-                        $stepImgsArray = explode("*", $oneRecipe['Step IMGs']);
-                    // echo '<p> Number of steps is' . count($originalSteps2) .' </p>';
-                        for($lp = 0; $lp < count($originalSteps2 ); $lp++) {
-                            $firstChar = substr($originalSteps2[$lp], 0, 1);
+            echo '<div class="steps">';
+                        $stepTextArray = explode('*', $oneRecipe['All Steps']);
+                        $stepImagesArray = explode("*", $oneRecipe['Step IMGs']);
+                            
+                        for($lp = 0; $lp < count($stepTextArray); $lp++) {
+                            //If step starts with a number, get number minus one for image name
+                            $firstChar = substr($stepTextArray[$lp],0,1);
                         
-                            // echo '<p> this is the first character' . $firstChar . '</p>';
-                            if (is_numeric($firstChar)){
-                                echo '<figure class="step">'; 
-                                echo '<img src="./images/' . $stepImgsArray[$firstChar-1] . '" alt="Dish image">';
-                                echo '<figcaption class="stepName"> Step ' . $originalSteps2[$lp] . '</figcaption>';
-                                echo '<figcaption class="stepDesc">' . $originalSteps2[$lp+1] . '</figcaption>';  
-                                echo '</figure>';
+                            if (is_numeric($firstChar)) {
+                                echo '<figure class="step">';
+                                echo '<img src="./images/' . $stepImagesArray[$firstChar-1] . '" alt="Dish image">';
                             }
-                        
-                        }
 
+                            echo '<figcaption class="stepName"> Step ' . $stepTextArray[$lp] . '</figcaption>';
+                            echo '<figcaption class="stepDesc">' . $stepTextArray[$lp+1] . '</figcaption>';  
+                            echo '</figure>';
+                        }
                         echo '</div>';
                         echo '</div>';
                     }
 
-                    };
+                    } else {
+                        consoleMsg("QUERY ERROR");
+                    }
                 ?>
 
        
