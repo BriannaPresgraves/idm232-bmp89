@@ -39,7 +39,7 @@
         while ($oneRecipe = mysqli_fetch_array($results)) {
         
             echo '<div class="recipeheading">';
-            // Recipe Info
+            // Recipe Heading Info
             echo '<div class="main_info">';
             echo '<figure class="heading">';
                     echo '<img src="images/' .$oneRecipe['Main IMG']. '" alt="Dish Image">';
@@ -89,6 +89,7 @@
                     echo '</figure>';
             echo '</div>';
         
+            // Recipe steps and Images
             echo '<div class="recipesteps">';
             echo '<div class="steps">';
                         $stepTextArray = explode('*', $oneRecipe['All Steps']);
