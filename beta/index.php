@@ -102,11 +102,11 @@
                             if (is_numeric($firstChar)) {
                                 echo '<figure class="step">';
                                 echo '<img src="./images/' . $stepImagesArray[$firstChar-1] . '" alt="Dish image">';
+                                echo '<figcaption class="stepName"> Step ' . $stepTextArray[$lp] . '</figcaption>';
+                                echo '<figcaption class="stepDesc">' . $stepTextArray[$lp+1] . '</figcaption>';  
+                                echo '</figure>';
                             }
 
-                            echo '<figcaption class="stepName"> Step ' . $stepTextArray[$lp] . '</figcaption>';
-                            echo '<figcaption class="stepDesc">' . $stepTextArray[$lp+1] . '</figcaption>';  
-                            echo '</figure>';
                         }
                         echo '</div>';
                         echo '</div>';
