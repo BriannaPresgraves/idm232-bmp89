@@ -28,16 +28,6 @@
         </div>
         <div class="layout">
             <div class="recipefilters">
-                <h2 class="filtertext">Protein</h2>
-                <button class="filter" type="checkbox" data-filter="beef" onclick="toggleFilter('beef', this)">Beef</button>
-                <button class="filter" type="checkbox" data-filter="chicken" onclick="toggleFilter('chicken', this)">Chicken</button>
-                <button class="filter" type="checkbox" data-filter="fish" onclick="toggleFilter('fish', this)">Fish</button>
-                <button class="filter" type="checkbox" data-filter="pork" onclick="toggleFilter('pork', this)">Pork</button>
-                <button class="filter" type="checkbox" data-filter="steak" onclick="toggleFilter('steak', this)">Steak</button>
-                <button class="filter" type="checkbox" data-filter="turkey" onclick="toggleFilter('turkey', this)">Turkey</button>
-                <button class="filter" type="checkbox" data-filter="vegitarian" onclick="toggleFilter('vegitarian', this)">Vegetarian</button>
-                <button class="filter" type="checkbox" onclick="clearFilters()">Clear All</button>
-
                  <div class="filter">
                     <input type="checkbox" name="beef" value="beef"> <label for="beef">Beef</label>
                  </div>
