@@ -51,6 +51,9 @@
                  <div class="filter">
                     <input type="checkbox" name="vegetarian" value="vegetarian"> <label for="vegetarian">Vegetarian</label>
                  </div>
+                 <div class="filter">
+                    <input type="checkbox" name="clearall" value="clearall"> <label for="clearall">Clear All</label>
+                 </div>
             </div>
             <div class="recipes37">
             <?php
