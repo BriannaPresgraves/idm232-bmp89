@@ -18,7 +18,7 @@
             </div>
         </header>
         <div class="back">
-            <a href="home.php" class="back_button"><  Back to Recipes</a>
+            <a href="index.php" class="back_button"><  Back to Recipes</a>
         </div>
             <?php
             require_once './includes/fun.php';
@@ -32,8 +32,16 @@
             ?>
     <main>
       <?php
-      $query = "SELECT * FROM recipes WHERE id=1";
+      //$query = "SELECT * FROM recipes WHERE id=1";
+      
+      //Capture passed in RecID number
+      $recID = $_GET['recID'];
+      consoleMsg("recID.. is $recID");
+
+      $query = "SELECT * FROM recipes WHERE id=$recID";
+
       $results = mysqli_query($db_connection, $query);
+      
       if ($results->num_rows > 0) {
         consoleMsg("Query successful! number of rows: $results->num_rows");
         while ($oneRecipe = mysqli_fetch_array($results)) {
@@ -72,7 +80,7 @@
             echo '<div class="ingredients">';
                 echo '<div>';
                     echo '<figure class="ing">';
-                        echo '<img src="images/' .$oneRecipe['Ingredients IMG']. '" alt="Ingredients">';
+                        echo '<img src="./images/ing/' .$oneRecipe['Ingredients IMG']. '" alt="Ingredients">';
                     echo '<div class="text">';
                         echo '<div class="ingList">';
                             echo '<figcaption class="stepName">Ingredients</figcaption>';
@@ -101,7 +109,7 @@
                         
                             if (is_numeric($firstChar)) {
                                 echo '<figure class="step">';
-                                echo '<img src="./images/' . $stepImagesArray[$firstChar-1] . '" alt="Dish image">';
+                                echo '<img src="./images/steps/' . $stepImagesArray[$firstChar-1] . '" alt="Dish image">';
                                 echo '<figcaption class="stepName"> Step ' . $stepTextArray[$lp] . '</figcaption>';
                                 echo '<figcaption class="stepDesc">' . $stepTextArray[$lp+1] . '</figcaption>';  
                                 echo '</figure>';

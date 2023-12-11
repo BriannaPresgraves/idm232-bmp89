@@ -71,6 +71,9 @@
             if ($results && mysqli_num_rows($results) > 0) {
             consoleMsg("Query successful! number of rows: $results->num_rows");
             while ($recipe = mysqli_fetch_array($results)) {
+            $id = $oneRecipe['id'];
+
+            echo '<a href="./detail.php?recID='. $id .'">';
 
             echo '<div class="single">';
             echo '<img src="./images/' . ($recipe['Main IMG']) . '" alt="Dish Image">';
@@ -79,6 +82,8 @@
             echo '<h4>'  . ($recipe['Subtitle']) . '</h4>';
             echo '</div>';
             echo '</div>';
+
+            echo '</a>';
         }
 
       } else {
