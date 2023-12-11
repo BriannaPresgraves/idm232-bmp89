@@ -98,7 +98,7 @@ header {
     font-size: 40px;
 }
 
-.search input {
+form input {
     float: right;
     padding: 6px;
     padding-right: 90px;
@@ -494,7 +494,7 @@ strong {
         font-size: 14px;
     }
 
-    .search input {
+    form input {
         font-size: 15px;
     }
 
@@ -580,7 +580,7 @@ strong {
         font-size: 16px;
     }
 
-    .search input {
+    form input {
         padding-right: 50px;
     }
 
@@ -741,7 +741,7 @@ strong {
         height: 400px;
     }
 
-    .search input {
+    form input {
         float: right;
         padding: 4px;
         padding-right: 30px;
@@ -759,6 +759,28 @@ strong {
         margin-right: 50px;
         margin-left: 15px;
         font-size: 14px;
+    }
+
+    .no-recipes-msg {
+        display: flex;
+        flex-direction: column;
+        grid-column: span 3;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: grey;
+    }
+    
+    .no-recipes-msg h2 {
+        max-width: 400px;
+    }
+    
+    .no-recipes-msg svg {
+        color: grey;
+        flex-shrink: 0; 
+        width: 200px;
+        height: auto;
+        margin-bottom: 15px;
     }
   }
 
@@ -884,7 +906,7 @@ strong {
         font-size: 13px;
     }
 
-    .search input {
+    .form input {
         float: right;
         padding: 4px;
         padding-right: 20px;
