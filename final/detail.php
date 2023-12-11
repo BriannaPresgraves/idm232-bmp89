@@ -38,7 +38,7 @@
       $recID = $_GET['recID'];
       consoleMsg("recID.. is $recID");
 
-      $query = "SELECT * FROM recipes WHERE id=$recID";
+      $query = "SELECT * FROM recipes WHERE id={$recID}";
 
       $results = mysqli_query($db_connection, $query);
       
@@ -46,6 +46,7 @@
         consoleMsg("Query successful! number of rows: $results->num_rows");
         while ($oneRecipe = mysqli_fetch_array($results)) {
         
+            $id =$oneRecipe['id'];
             echo '<div class="recipeheading">';
             // Recipe Heading Info
             echo '<div class="main_info">';

@@ -28,30 +28,14 @@
         </div>
         <div class="layout">
             <div class="recipefilters">
-                 <div class="filter">
-                    <input type="checkbox" name="beef" value="beef"> <label for="beef">Beef</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="chicken" value="chicken"> <label for="chicken">Chicken</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="pork" value="pork"> <label for="pork">Pork</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="fish" value="fish"> <label for="fish">Fish</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="steak" value="steak"> <label for="steak">Steak</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="turkey" value="turkey"> <label for="turkey">Turkey</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="vegetarian" value="vegetarian"> <label for="vegetarian">Vegetarian</label>
-                 </div>
-                 <div class="filter">
-                    <input type="checkbox" name="clearall" value="clearall"> <label for="clearall">Clear All</label>
-                 </div>
+                <button class="filter" id="beef" value="beef" onclick="handleFilterClick(this)"><a href="index.php?filter=beef" class="btnText">Beef</a></button>
+                <button class="filter" id="steak" value="steak" onclick="handleFilterClick(this)"><a href="index.php?filter=steak" class="btnText">Steak</a></button>
+                <button class="filter" id="turkey" value="turkey" onclick="handleFilterClick(this)"><a href="index.php?filter=turkey" class="btnText">Turkey</a></button>
+                <button class="filter" id="chicken" value="chicken" onclick="handleFilterClick(this)"><a href="index.php?filter=chicken" class="btnText">Chicken</a></button>
+                <button class="filter" id="pork" value="pork" onclick="handleFilterClick(this)"><a href="index.php?filter=pork" class="btnText">Pork</a></button>
+                <button class="filter" id="fish" value="fish" onclick="handleFilterClick(this)"> <a href="index.php?filter=fish" class="btnText">Fish</a></button>
+                <button class="filter" id="vegitarian" value="vegitarian" onclick="handleFilterClick(this)"><a href="index.php?filter=vegitarian" class="btnText">Vegetarian</a></button>
+                <button class="filter" onclick="clearFilters()">Clear</button>
             </div>
             <div class="recipes37">
             <?php
@@ -83,24 +67,6 @@
               $query = "SELECT * FROM recipes";
             }
 
-            $filterString = $_GET['filters'] ?? '';
-            $filters = explode(',', $filterString);
-            $filters = array_filter($filters);
-        
-            $filterQueryParts = [];
-            foreach ($filters as $filter) {
-                $filterQueryParts[] = "proteine LIKE '%{$filter}%'";
-            }
-            $filterQuery = implode(" OR ", $filterQueryParts);
-        
-            if (!empty($search)) {
-            
-            } elseif (!empty($filterQuery)) {
-                $query = "SELECT * FROM recipes WHERE " . $filterQuery;
-            } else {
-                $query = "SELECT * FROM recipes";
-            }
-
             $results = mysqli_query($db_connection, $query);
             // consoleMsg("results is ; $results");
             if ($results && mysqli_num_rows($results) > 0) {
@@ -122,8 +88,8 @@
         }
 
       } else {
-        echo '<div class="no-recipes-msg">';
-        echo '<h2>' . 'No recipes found for "' . $search . '." Try another keyword.</h2>';
+        echo '<div class="noResults">';
+        echo '<h1 class="NoResultsMsg"> ' . 'No results found for: "' . $search . '"</h1>';
         echo '</div>';
       }
 
@@ -133,5 +99,8 @@
         <footer>
             <p class="footer">&copy; 2023 Sizzle and Savor</p>
         </footer>
+
+        <script src="./scripts/main.js"></script>
+
       </body>
 </html>
