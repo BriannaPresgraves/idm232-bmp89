@@ -1,0 +1,22 @@
+body { 
+background-color: aliceblue;
+display: flex; 
+justify-content: center; 
+align-items: center; 
+flex-direction: column;
+margin: 1rem; 
+padding: 1rem; 
+}
+
+header {
+    margin: 0 auto;
+    margin-bottom: 0px;
+}
+
+.hero{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: 0%;
+}
+
