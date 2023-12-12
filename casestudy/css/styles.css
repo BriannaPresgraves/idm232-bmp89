@@ -1,11 +1,5 @@
-body { 
-background-color: aliceblue;
-display: flex; 
-justify-content: center; 
-align-items: center; 
-flex-direction: column;
-margin: 1rem; 
-padding: 1rem; 
+body {
+    background-color: beige;
 }
 
 header {
@@ -20,3 +14,117 @@ header {
     margin-bottom: 0%;
 }
 
+.content {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+h1 {
+    color: darkgreen;
+    letter-spacing: .05rem;
+    line-height: 1.6;
+    margin: .5rem;
+    padding: .5rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: darkgreen;
+    font-size: 2rem;
+}
+
+h3 {
+    color: darkolivegreen;
+    font-size: 1.25rem;
+    margin: 2rem 0rem 0rem 0rem;
+}
+
+p{
+    font-size: 1.25rem;
+    letter-spacing: .05rem;
+    line-height: 1.6;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+a.hover-link { 
+    color: darkolivegreen; 
+}
+
+a.hover-link:hover { 
+    text-decoration: underline; 
+}
+
+a:link {
+    color: darkolivegreen;
+}
+
+a:visited {
+    color: darkolivegreen;
+    text-decoration: underline;
+}
+
+@media (max-width:900px) {
+
+    .content {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+
+}
+
+@media (max-width:650px) {
+
+    .content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:450px) {
+
+    .content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width:350px) {
+
+    .content {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+
+}
