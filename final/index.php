@@ -1,106 +1,134 @@
+<?php
+  require_once './includes/fun.php';
+  consoleMsg("yehhhh");
+
+  // Include env.php that holds global vars with secret info
+  require_once './env.php';
+
+
+  // Include the database connection code
+  require_once './includes/database.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css"/>
-    <link rel="stylesheet" href="css/styles.css"/>
     <title>Sizzle and Savor</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
-      <body>
-        <header>
-            <img class="hero" src="images/heroimage3.jpg" alt="Hero image"></img>
-            <div class="overlay">
-                <h1>Sizzle</h1>
-                <h1 class="and">and</h1>
-                <h1>Savor</h1>
-            </div>
-            <div class="subtitle">
-                <h2>Savor the Flavors of Home Cooking</h2>
-            </div>
-        </header>
-        <div class="search">
-            <form action="index.php" method="POST">
-                <input type="search" id="search" name="search" value="<?php echoSearchValue(); ?>" placeholder="Search for recipes..">
-                <button type="submit" name="submit" id="submit" class="searchbutton">Search</button>
-            </form>
+<body>
+    <div class="hero-img">
+        <picture>
+            <source media="(min-width: 700px)" srcset="assets/herobanner_desktop2.png">
+            <img src="assets/herobanner_desktop.png" alt="Hero Banner">
+        </picture>
+        <div class="site-logo">
+            <h2><a href="index.php">Sizzle and Savor</a></h2>
         </div>
-        <div class="layout">
-            <div class="recipefilters">
-                <button class="filter" id="beef" value="beef" onclick="handleFilterClick(this)"><a href="index.php?filter=beef" class="btnText">Beef</a></button>
-                <button class="filter" id="steak" value="steak" onclick="handleFilterClick(this)"><a href="index.php?filter=steak" class="btnText">Steak</a></button>
-                <button class="filter" id="turkey" value="turkey" onclick="handleFilterClick(this)"><a href="index.php?filter=turkey" class="btnText">Turkey</a></button>
-                <button class="filter" id="chicken" value="chicken" onclick="handleFilterClick(this)"><a href="index.php?filter=chicken" class="btnText">Chicken</a></button>
-                <button class="filter" id="pork" value="pork" onclick="handleFilterClick(this)"><a href="index.php?filter=pork" class="btnText">Pork</a></button>
-                <button class="filter" id="fish" value="fish" onclick="handleFilterClick(this)"> <a href="index.php?filter=fish" class="btnText">Fish</a></button>
-                <button class="filter" id="vegitarian" value="vegitarian" onclick="handleFilterClick(this)"><a href="index.php?filter=vegitarian" class="btnText">Vegetarian</a></button>
-                <button class="filter" onclick="clearFilters()">Clear</button>
-            </div>
-            <div class="recipes37">
-            <?php
-            require_once './includes/fun.php';
-            consoleMsg("PHP to JS is not it");
-            require_once './env.php';
-            require_once './includes/database.php';
-            ?>
-            <?php
-            // Get all the recipes from "recipes" table in the "idm232" database
-            consoleMsg("results is ; $results");
+        <div class="overlay-text">
+            <h1>Sizzle and Savor</h1>
+            <h4>Savor the Flavors of Home Cooking</h4>
+        </div>
+    </div>
+    <div class="search-container">
+        <form action="index.php" method="POST">
+        <input id="search" name="search" value="<?php echoSearchValue(); ?>" type="search" placeholder="Search for recipes">
+        <button type="submit" name="submit" value="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        </form>
+    </div>
+    <div class="recipe-container">
+    <div class="filter">
+        <div>
+        <div class="filter-text">
+            <h3>Protein</h3>
+        </div>
+        <div class="protein-filter">
+        <button class="filter-button" data-filter="beef" onclick="toggleFilter('beef', this)">Beef</button>
+        <button class="filter-button" data-filter="chicken" onclick="toggleFilter('chicken', this)">Chicken</button>
+        <button class="filter-button" data-filter="fish" onclick="toggleFilter('fish', this)">Fish</button>
+        <button class="filter-button" data-filter="pork" onclick="toggleFilter('pork', this)">Pork</button>
+        <button class="filter-button" data-filter="steak" onclick="toggleFilter('steak', this)">Steak</button>
+        <button class="filter-button" data-filter="turkey" onclick="toggleFilter('turkey', this)">Turkey</button>
+        <button class="filter-button" data-filter="vegitarian" onclick="toggleFilter('vegitarian', this)">Vegetarian</button>
+        <button class="filter-button clear-btn" type="button" onclick="clearFilters()">Clear All</button>
+        </div>
+        </div>
+    </div>
 
-            $search = $_POST['search'];
-            consoleMsg("Search string is $search");
+    <div class="recipes">
+    <?php
 
-            $filter = $_GET['filter'];
-            consoleMsg("Filter is: $filter");
-      
-            if (!empty($search)) {
-              consoleMsg("Doing a SEARCH");
-              // $query = "select * FROM recipes WHERE title LIKE '%{$search}%'";
-              $query = "select * FROM recipes WHERE title LIKE '%{$search}%' OR subtitle LIKE '%{$search}%'";
-              $result = mysqli_query($connection, $query);
-            } elseif (!empty($filter)) {
-              consoleMsg("Doing a FILTER");
-              $query = "select * FROM recipes WHERE proteine LIKE '%{$filter}%'";
-            } else {
-              consoleMsg("Loading ALL RECIPES");
-              $query = "SELECT * FROM recipes";
-            }
+      // STEP 05 Build Search Query
+      $search = $_POST['search'];
+      consoleMsg("Search is: $search");
 
-            $results = mysqli_query($db_connection, $query);
-            // consoleMsg("results is ; $results");
-            if ($results && mysqli_num_rows($results) > 0) {
-            consoleMsg("Query successful! number of rows: $results->num_rows");
-            while ($recipe = mysqli_fetch_array($results)) {
+      // STEP 06 Build Filter Query
+      // Get filter info if passed in URL
+      $filter = $_GET['filter'];
+      consoleMsg("Filter is: $filter");
+
+    if (!empty($search)) {
+        consoleMsg("Doing a SEARCH");
+        // $query = "select * FROM recipes WHERE title LIKE '%{$search}%'";
+        $query = "select * FROM recipes WHERE title LIKE '%{$search}%' OR subtitle LIKE '%{$search}%'";
+        // $result = mysqli_query($connection, $query);
+      } elseif (!empty($filter)) {
+        consoleMsg("Doing a FILTER");
+        $query = "select * FROM recipes WHERE proteine LIKE '%{$filter}%'";
+      } else {
+        consoleMsg("Loading ALL RECIPES");
+        $query = "SELECT * FROM recipes";
+      }
+  
+    $filterString = $_GET['filters'] ?? '';
+    $filters = explode(',', $filterString);
+    $filters = array_filter($filters);
+
+    $filterQueryParts = [];
+    foreach ($filters as $filter) {
+        $filterQueryParts[] = "proteine LIKE '%{$filter}%'";
+    }
+    $filterQuery = implode(" OR ", $filterQueryParts);
+
+    if (!empty($search)) {
+    
+    } elseif (!empty($filterQuery)) {
+        $query = "SELECT * FROM recipes WHERE " . $filterQuery;
+    } else {
+        $query = "SELECT * FROM recipes";
+    }
+
+
+    $results = mysqli_query($db_connection, $query);
+
+    if ($results && mysqli_num_rows($results) > 0) {
+        while ($oneRecipe = mysqli_fetch_assoc($results)) {
+            
             $id = $oneRecipe['id'];
 
             echo '<a href="./detail.php?recID='. $id .'">';
-
-            echo '<div class="single">';
-            echo '<img src="./images/' . ($recipe['Main IMG']) . '" alt="Dish Image">';
-            echo '<div class="recipetitles">';
-            echo '<h3>'  . ($recipe['Title']) . '</h3>';
-            echo '<h4>'  . ($recipe['Subtitle']) . '</h4>';
+            echo '<div class="recipe-card">';
+            echo '<img src="images/' . ($oneRecipe['Main IMG']) . '" alt="' . ($oneRecipe['Title']) . '">';
+            echo '<h2>' . ($oneRecipe['Title']) . '</h2>';
+            echo '<h3>' . ($oneRecipe['Subtitle']) . '</h3>';
             echo '</div>';
-            echo '</div>';
-
             echo '</a>';
         }
-
-      } else {
-        echo '<div class="noResults">';
-        echo '<h1 class="NoResultsMsg"> ' . 'No results found for: "' . $search . '"</h1>';
+    } else {
+        echo '<div class="no-recipes-msg">';
+        echo '<h2>' . 'No recipes found for "' . $search . '." Try another keyword.</h2>';
         echo '</div>';
-      }
-
+    }
     ?>
-            </div>
-        </div>
-        <footer>
-            <p class="footer">&copy; 2023 Sizzle and Savor</p>
-        </footer>
-
-        <script src="./scripts/main.js"></script>
-
-      </body>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sizzle and Savor</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
 </html>
